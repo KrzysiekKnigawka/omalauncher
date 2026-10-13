@@ -11,6 +11,9 @@ Dates are when the build was uploaded to Play.
   Browsers didn't offer to install them before.
 - Antigravity (agy) starts with its prompt when it's the agent for a new or edited widget,
   a new app or the prompt bar. It quit with "unexpected argument" before.
+- Long-pressing an Android app in the drawer, the recent apps or on home lists its
+  shortcuts, such as Maps' "Navigate home", a chat or Chrome's incognito tab. Tap one
+  to open it, or its [+] to put it on the home screen.
 
 ## 0.7.0 (versionCode 12) – 2026-10-13
 
