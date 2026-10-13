@@ -40,7 +40,8 @@ val AGENTS =
     )
 
 /**
- * Starts [agentBin] with a first prompt; OpenCode takes it as --prompt, the others as an argument.
+ * Starts [agentBin] with a first prompt; OpenCode takes it as --prompt, Antigravity as -i (it refuses a bare
+ * argument: "unexpected argument"), the others as an argument.
  * [readOnly], for reading something untrusted: Claude Code starts in plan mode, where it can read but not
  * run commands or change files whatever the user's settings say. The others have no flag for that we can
  * rely on inside proot, and only have the prompt.
@@ -53,6 +54,7 @@ fun agentInvocation(
     val quoted = shellQuote(prompt)
     return when {
         agentBin == "opencode" -> "$agentBin --prompt $quoted"
+        agentBin == "agy" -> "$agentBin -i $quoted"
         agentBin == "claude" && readOnly -> "$agentBin --permission-mode plan $quoted"
         else -> "$agentBin $quoted"
     }
